@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,59 +10,85 @@
     <link rel="stylesheet" href="styles/style.css">
 
     <!-- APRILLE PLEASE ADD OR CHANGE ANYTHING YOU FEEL IT NEED FOR CSS -->
+    <!-- ^^ Will likely add some classes depending on the styling but we can do that as we get into it -->
+
+    <!-- NOTE: A THOUGHT: do we want to have a button somewhere so the user can go back to the first page?! Maybe if they make a mistake and want to take a shorter/longer break?! IDK -->
 
 </head>
+
 <body>
+
     <header>
         <section>
-            <h1>code countdown</h1>
-            <p>need a break from coding?</p>
-            <p>code countdown will count your break down for you AND inspire you to continue afterwards</p>
-            <!-- let me known if u want to change the element for this below or any of the ELEMENTS actually-->
-            <p>choose break time:</p>
+            <h1>Code countdown</h1>
+            <p>Need a break from coding?</p>
+            <p>Code countdown will count your break down for you AND inspire you to continue coding!</p>
+
+            <!-- NOTE: I would maybe make this an H2 since it is a heading to the buttons -->
+            <p>Choose a break time:</p>
+
+            <!-- NOTE: I would make this an unordered list since it is a group of buttons, more semantic that way and better for a screen reader!-->
             <div>
                 <button>15 minutes</button>
                 <button>30 minutes</button>
                 <button>45 minutes</button>
             </div>
         </section>
-        
-        <main>
-            <section>
-                <h2>what is your mood?</h2>
-                <form action="">
-                    <select name="moods">
-                        <option value="happy">Happy</option>
-                        <option value="sad">Sad </option>
-                        <!-- or tired, lazy...Im cool with whatever lol -->
-                        <option value="lathargic">Lathargic</option>
-                        <option value="stressed">Stressed</option>
-                        <option value="mad" selected>Mad</option>
 
-                        <!-- we can add more now or later. I'll let you decide -->
-                        <!-- <option value="stressed">Stressed</option> -->
-                        <!-- <option value="stressed">Stressed</option> -->
-                        <!-- <option value="stressed">Stressed</option> -->
-                      </select>
-                </form>
-                <p>THIS IS WHERE WE WILL .HTML() THE QUOTES</p>
-                <button>another quote</button>
-                <div>
-                    <h3>countdown to code</h3>
-                    <p>THIS IS WHERE WE .HTML() EITHER 15/ 30/ 45 MINUTES</p>
-                </div>
-            </section>
-        </main>
-
-        <footer>
-            <a href="https://junocollege.com/">Created at Juno College</a>
-            <p>Designed by Aprille Balsom + Ryan Tjong</p>
-        </footer>
+    </header>
 
 
+    <main>
+        <section>
+            <!-- NOTE: I feel like this should be and <h1> IF we manage to empty out all the content before it as it is the heading of this part. If not keep it as an h2. -->
+            <h2>What is your mood?</h2>
 
-    <script src='https://code.jquery.com/jquery-3.4.0.min.js' integrity='sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=' crossorigin='anonymous'></script>
+            <form action="">
+
+                <select name="moods">
+
+                    <!-- NOTE: LET'S CHAT ABOUT THESE OPTIONS TOMORROW, i'll make a note. -->
+                    <!-- Thoughts on having "mood" as the selected option at the top?! or something like that -->
+                    <option value="happy">Happy</option>
+                    <option value="sad">Sad </option>
+                    <!-- or tired, lazy...Im cool with whatever lol -->
+                    <option value="lathargic">Lathargic</option>
+                    <option value="stressed">Stressed</option>
+                    <option value="mad">Mad</option>
+
+                    <!-- we can add more now or later. I'll let you decide -->
+                    <!-- <option value="stressed">Stressed</option> -->
+                    <!-- <option value="stressed">Stressed</option> -->
+                    <!-- <option value="stressed">Stressed</option> -->
+                </select>
+
+            </form>
+
+
+            <!-- Maybe put this in a div as it will be appened to the page at the same time? Also better for styling? -->
+            <p>THIS IS WHERE WE WILL .HTML() THE QUOTES</p>
+            <button>another quote</button>
+
+
+            <div>
+                <h3>countdown to code</h3>
+                <p>THIS IS WHERE WE .HTML() EITHER 15/ 30/ 45 MINUTES</p>
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        <a href="https://junocollege.com/">Created at Juno College</a>
+        <p>Designed by Aprille Balsom + Ryan Tjong</p>
+    </footer>
+
+
+    <!-- JQUERY / JAVASCRIPT -->
+    <script src='https://code.jquery.com/jquery-3.4.0.min.js'
+        integrity='sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=' crossorigin='anonymous'></script>
     <script src="script.js"></script>
 
 </body>
+
 </html>
