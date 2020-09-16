@@ -1,3 +1,30 @@
+//VARIABLE DECLARATIONS
+
+//COLORS
+$backgroundColor: #CDD5D1;
+$secondaryBackgroundColor: #557D87;
+$accentColor: #414141;
+$fontColor: #2D2D2D;
+$buttonColor: #E5E5DF;
+$footerColor: #8E735A;
+
+//FONTS
+
+// LFT Etica Mono Light
+$fontLight: lft-etica-mono, sans-serif;
+// font-weight: 200;
+// font-style: normal;
+
+$fontBook: lft-etica-mono, sans-serif;
+// font-weight: 300;
+// font-style: normal;
+
+$fontRegular: lft-etica-mono, sans-serif;
+// font-weight: 400;
+// font-style: normal;
+
+
+//IMPORTING OF PARTIALS
 @import "setup";
 @import "global";
 // @import "header";

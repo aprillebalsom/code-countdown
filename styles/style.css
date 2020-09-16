@@ -234,3 +234,66 @@ html {
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
+
+html,
+body,
+h1,
+h2,
+h3,
+a,
+p,
+ul,
+li,
+form,
+select,
+button {
+  padding: 0;
+  margin: 0;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  background: none;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: #CDD5D1;
+  color: #2D2D2D;
+  font-family: lft-etica-mono, sans-serif;
+  letter-spacing: 2px;
+  font-size: clamp(1.6rem, 3vw, 2rem);
+}
+
+button {
+  background-color: #E5E5DF;
+  border: 1px solid #414141;
+  padding: 10px;
+}
+
+footer {
+  background-color: #8E735A;
+}
+
+.wrapper {
+  width: 90%;
+  max-width: 1020px;
+  margin: auto;
+}

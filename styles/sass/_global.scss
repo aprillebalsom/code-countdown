@@ -1,0 +1,28 @@
+//GLOBAL STYLES
+html{
+    font-size: 62.5%;
+}
+
+body {
+    background-color: $backgroundColor;
+    color: $fontColor;
+    font-family: $fontRegular;
+    letter-spacing: 2px;
+    font-size: clamp(1.6rem, 3vw, 2rem);
+}
+
+button {
+    background-color: $buttonColor;
+    border: 1px solid $accentColor;
+    padding: 10px;
+}
+
+footer {
+    background-color: $footerColor;
+}
+
+.wrapper {
+    width: 90%;
+    max-width: 1020px;
+    margin: auto;
+}
