@@ -22,7 +22,7 @@
 <body>
 
     <header class="wrapper">
-        <section>
+        <section class="welcomeScreen">
             
             <h1>Code countdown</h1>
 
@@ -32,9 +32,9 @@
             <h2>Choose a break time:</h2>
 
             <ul>
-                <li><button>15 minutes</button></li>
-                <li><button>30 minutes</button></li>
-                <li><button>45 minutes</button></li>
+                <li><button class="breakStart" id="break15">15 minutes</button></li>
+                <li><button class="breakStart" id="break30">30 minutes</button></li>
+                <li><button class="breakStart" id="break45">45 minutes</button></li>
             </ul>
         </section>
     </header>
@@ -84,8 +84,13 @@
         <section class="countdownClock">
             <div>
                 <h3>countdown to code</h3>
-                <p>THIS IS WHERE WE .HTML() EITHER 15/ 30/ 45 MINUTES</p>
+
+                <div class="timer">
+                    <p id="minutes"> <!--appended minutes --> </p>
+                    <p>:</p>
+                    <p id="seconds"> <!--appended seconds--> </p>
             </div>
+
             <div>
                 <button>change break time</button>
             </div>
