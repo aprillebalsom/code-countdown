@@ -4,21 +4,68 @@ html{
 }
 
 body {
-    background-color: $backgroundColor;
     color: $fontColor;
+
     font-family: $fontRegular;
     letter-spacing: 2px;
     font-size: clamp(1.6rem, 3vw, 2rem);
 }
 
+header {
+    background-color: $backgroundColor;
+
+    height: 90vh;
+}
+
+h1, 
+h2, 
+p {
+    font-weight: 300;
+}
+
+h1 {
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    
+    padding: 20px 0;
+}
+
+h2 {
+    text-transform: lowercase;
+    padding: 30px 0 20px;
+    
+}
+
+p {
+    text-transform: lowercase;
+    text-align: center;
+}
+
+select,
+button {
+    font-family: $fontRegular;
+}
+
 button {
     background-color: $buttonColor;
     border: 1px solid $accentColor;
-    padding: 10px;
+
+    padding: 20px 25px;
 }
+
 
 footer {
     background-color: $footerColor;
+
+    text-align: right;
+
+    height: 10vh;
+    padding-top: 10px;
+
+    p {
+        text-align: right;
+        text-transform: none;
+    }
 }
 
 .wrapper {

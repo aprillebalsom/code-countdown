@@ -27,6 +27,6 @@ $fontRegular: lft-etica-mono, sans-serif;
 //IMPORTING OF PARTIALS
 @import "setup";
 @import "global";
-// @import "header";
+@import "header";
 // @import "main";
 @import "mediaQueries";
