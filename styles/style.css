@@ -276,15 +276,11 @@ html {
 }
 
 body {
+  background-color: #CDD5D1;
   color: #2D2D2D;
   font-family: lft-etica-mono, sans-serif;
   letter-spacing: 2px;
   font-size: clamp(1.6rem, 3vw, 2rem);
-}
-
-header {
-  background-color: #CDD5D1;
-  height: 90vh;
 }
 
 h1,
@@ -323,8 +319,7 @@ button {
 footer {
   background-color: #8E735A;
   text-align: right;
-  height: 10vh;
-  padding-top: 10px;
+  padding: 20px 0;
 }
 
 footer p {
@@ -339,7 +334,7 @@ footer p {
 }
 
 header {
-  padding-top: 80px;
+  padding: 80px 0;
 }
 
 header section {
@@ -378,4 +373,54 @@ ul {
 
 li {
   margin: 20px;
+}
+
+.computerScreen {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+form {
+  padding: 20px;
+  width: 40%;
+}
+
+select {
+  border: 1px solid #414141;
+  padding: 10px 50px 10px 5px;
+  width: 100%;
+}
+
+.appendedQuotes {
+  padding: px 0 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.appendedQuotes p {
+  padding: 30px 0;
+}
+
+.appendedQuotes button {
+  width: 30%;
+}
+
+.countdownClock {
+  padding: 100px;
 }

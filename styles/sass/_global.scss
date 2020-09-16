@@ -4,17 +4,12 @@ html{
 }
 
 body {
+    background-color: $backgroundColor;
     color: $fontColor;
-
+    
     font-family: $fontRegular;
     letter-spacing: 2px;
     font-size: clamp(1.6rem, 3vw, 2rem);
-}
-
-header {
-    background-color: $backgroundColor;
-
-    height: 90vh;
 }
 
 h1, 
@@ -59,8 +54,7 @@ footer {
 
     text-align: right;
 
-    height: 10vh;
-    padding-top: 10px;
+    padding: 20px 0;
 
     p {
         text-align: right;
