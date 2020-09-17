@@ -6,7 +6,7 @@ countdownApp.startTimer = function(selectedBreakTime){
     let minutesTime = 0;
 
     if (selectedBreakTime === 'break15'){
-        minutesTime = 3;
+        minutesTime = 15;
         $('#minutes').text(minutesTime);
         console.log(minutesTime);
 
@@ -22,6 +22,8 @@ countdownApp.startTimer = function(selectedBreakTime){
     countdownApp.countingDown(minutesTime);
     console.log(minutesTime);
 }
+
+
 countdownApp.countingDown = function(minutes){
 
     console.log(minutes);
@@ -31,7 +33,7 @@ countdownApp.countingDown = function(minutes){
         $('#minutes').text(minutes);
     }
 
-    let seconds = 5;
+    let seconds = 59;
     const timer = setInterval(function () {
 
         if (seconds === 0 && minutes === 0 && hours === 0){
@@ -53,9 +55,20 @@ countdownApp.countingDown = function(minutes){
             location.reload();
         }
 
-        // console.log(minutes);
+        //TODO - make error handling for 0 minutes and 0 seconds, skip it
+       
     }, 1000)
 }
+
+//on click, reload page to allow user to select new break time
+countdownApp.changeBreak = function(){
+
+    $('#changeBreak').on('click', function(){
+
+        location.reload();
+    });
+}
+
 
 
 // on click of the break button, change to computer screen 
@@ -68,9 +81,9 @@ countdownApp.changeScreen = function(){
         const userBreakChoice = $(this).attr('id');
         // console.log(this);
         countdownApp.startTimer(userBreakChoice);
+        countdownApp.changeBreak();
     })
 }
-
 
 //init function that kicks off the app
 countdownApp.init = function () { 
@@ -78,7 +91,6 @@ countdownApp.init = function () {
     // console.log('yay');
     countdownApp.changeScreen();
 };
-
 
 //document ready function
 $(function () { 
