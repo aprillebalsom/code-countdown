@@ -33,15 +33,15 @@ countdownApp.countingDown = function(minutes){
         $('#minutes').text(minutes);
     }
 
-    let seconds = 59;
+    let seconds = 60;
     const timer = setInterval(function () {
 
-        if (seconds === 0 && minutes === 0 && hours === 0){
-            setInterval(function(){
-                location.reload();
-            }, 5000)
-            return;
-        }
+        // if (seconds === 0 && minutes === 0 && hours === 0){
+        //     setInterval(function(){
+        //         location.reload();
+        //     }, 5000)
+        //     return;
+        // }
         // console.log(seconds);
         seconds = seconds - 1;
         $('#seconds').text(seconds);
@@ -50,6 +50,7 @@ countdownApp.countingDown = function(minutes){
             clearInterval(timer);
             countdownApp.countingDown(minutes);
         } else if (minutes <= 0 && seconds <= 0) {
+            alert(`time's up, back to coding`);
             location.reload();
         }
 
@@ -70,12 +71,23 @@ countdownApp.changeBreak = function(){
 
 countdownApp.getQuotes = function(query) {
     $.ajax({
-    url: `https://quote-garden.herokuapp.com/api/v2/genre/${query}?page=1&limit=10`,
+        url: `https://quote-garden.herokuapp.com/api/v2/genre/${query}?page=1&limit=270`,
     method: 'GET',
     dataType: 'JSON',
     }).then(function(result){
-        console.log(result);
+        // console.log(result);
+        countdownApp.displayQuotes(result)
     })
+}
+
+countdownApp.displayQuotes = function(quoteResults){
+    
+    const selectedQuote = quoteResults.quotes[0].quoteText;
+    // console.log(selectedQuote);
+
+    const p = $('<p>').text(`"${selectedQuote}"`);
+
+    $('.appendedQuotes').append(p);
 }
 
 //listen for the user to "select" an option from the drop down menu
@@ -86,8 +98,9 @@ countdownApp.getSelectValue = function(){
     $('select').on('change', function(){
 
         const mood = $('option:selected').val();
+        $('.appendedQuotes').empty();
         countdownApp.getQuotes(mood);
-        console.log(mood);
+        // console.log(mood);
 
     });
 }
