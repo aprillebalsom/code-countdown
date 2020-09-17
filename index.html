@@ -12,11 +12,6 @@
     <!-- Style Sheet -->
     <link rel="stylesheet" href="styles/style.css">
 
-    <!-- APRILLE PLEASE ADD OR CHANGE ANYTHING YOU FEEL IT NEED FOR CSS -->
-    <!-- ^^ Will likely add some classes depending on the styling but we can do that as we get into it -->
-
-    <!-- NOTE: A THOUGHT: do we want to have a button somewhere so the user can go back to the first page?! Maybe if they make a mistake and want to take a shorter/longer break?! IDK -->
-
 </head>
 
 <body>
@@ -43,59 +38,68 @@
     <main class="wrapper">
         <section class="computerScreen">
 
-            <!-- <div class="computer"> -->
-                <!-- <img class="backDrop" src="./styles/assets/computer.png" alt="A black computer monitor icon"> 
-                </div> -->
-            
-
-            <h2>What is your mood?</h2>
-
-            <form action="">
-
-                <select name="moods">
-
-                
-                    <!-- Thoughts on having "mood" as the selected option at the top?! or something like that -->
-                    <option value="happiness">Happy</option>
-                    <!-- <option value="sad">Sad</option> -->
-                    <!-- or tired, lazy...Im cool with whatever lol -->
-                    <option value="education">Uninspired</option>
-                    <!-- <option value="stressed">Stressed</option> -->
-                    <!-- <option value="mad">Mad</option> -->
-
-                    <!-- we can add more now or later. I'll let you decide -->
-                    <option value="funny">Giggly</option>
-                    <!-- <option value="stressed">Stressed</option> -->
-                    <!-- <option value="stressed">Stressed</option> -->
-                </select>
-
-            </form>
-
-
-        
-            <div class="appendedQuotes">
-                <p>THIS IS WHERE WE WILL .HTML() THE QUOTES</p>
-                <button>another quote</button>
+            <div class="computer">
+                <img src="./styles/assets/computer.png" alt="A black computer monitor icon"> 
             </div>
+            
+            <div class="computerScreenContents">
+                <h2>What is your mood?</h2>
 
+                <form action="">
+
+                    <select name="moods">
+
+                    
+                        <!-- Thoughts on having "mood" as the selected option at the top?! or something like that -->
+                      
+                        <option value="happiness">Happy</option>
+                        <!-- <option value="sad">Sad</option> -->
+                        <!-- or tired, lazy...Im cool with whatever lol -->
+                        <option value="education">Uninspired</option>
+                        <!-- <option value="stressed">Stressed</option> -->
+                        <!-- <option value="mad">Mad</option> -->
+
+                        <!-- we can add more now or later. I'll let you decide -->
+                        <option value="funny">Giggly</option>
+                        <!-- <option value="stressed">Stressed</option> -->
+                        <!-- <option value="stressed">Stressed</option> -->
+                    </select>
+
+                </form>
+        
+                <div class="appendedQuotes">
+                    <p>THIS IS WHERE WE WILL .HTML() THE QUOTES</p>
+                    <button>another quote</button>
+                </div>
+            
+            </div>
             
         </section>
 
         <section class="countdownClock">
-            <div>
-                <h3>countdown to code</h3>
 
+            <div class="clockImage">
+                <img src="./styles/assets/clock.png" alt="">
+            </div>
+
+            <div class="clockContents">
+                <h3>countdown to code</h3>
+            
+            <div class="clockFlex">
                 <div class="timer">
                     <p id="minutes"> <!--appended minutes --> </p>
                     <p>:</p>
                     <p id="seconds"> <!--appended seconds--> </p>
                 </div>
+
+                <button id="changeBreak">change break time</button>
+            </div>
                 
             </div>
 
-            <div>
+            <!-- <div>
                 <button id="changeBreak">change break time</button>
-            </div>
+            </div> -->
 
         </section>
     </main>
