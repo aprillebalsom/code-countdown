@@ -6,7 +6,7 @@ countdownApp.startTimer = function(selectedBreakTime){
     let minutesTime = 0;
 
     if (selectedBreakTime === 'break15'){
-        minutesTime = 15;
+        minutesTime = 3;
         $('#minutes').text(minutesTime);
         console.log(minutesTime);
 
@@ -33,6 +33,14 @@ countdownApp.countingDown = function(minutes){
 
     let seconds = 5;
     const timer = setInterval(function () {
+
+        if (seconds === 0 && minutes === 0 && hours === 0){
+            $('body').addClass('red');
+            setInterval(function(){
+                location.reload();
+            }, 5000)
+            return;
+        }
         console.log(seconds);
         seconds = seconds - 1;
         $('#seconds').text(seconds);
@@ -41,7 +49,9 @@ countdownApp.countingDown = function(minutes){
         if (seconds <= 0 && minutes > 0) {
             clearInterval(timer);
             countdownApp.countingDown(minutes);
-        } 
+        } else if (minutes <= 0 && seconds <= 0) {
+            location.reload();
+        }
 
         // console.log(minutes);
     }, 1000)
