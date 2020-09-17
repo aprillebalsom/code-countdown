@@ -29,13 +29,13 @@ select {
 // }
 // }
 
-// .backDrop {
-//     width: 90%;
-//     position: absolute;
-//     top: -10%;
-//     bottom: 0;
-//     z-index: -10;
-// }
+.backDrop {
+    width: 90%;
+    position: absolute;
+    top: -10%;
+    bottom: 0;
+    z-index: -10;
+}
 
 .appendedQuotes {
     padding: px 0 50px;
@@ -55,4 +55,11 @@ select {
 
 .countdownClock {
     padding: 100px;
+}
+
+.timer {
+    padding: 10px 0 10px 90px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }

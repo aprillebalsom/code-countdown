@@ -37,7 +37,6 @@ countdownApp.countingDown = function(minutes){
     const timer = setInterval(function () {
 
         if (seconds === 0 && minutes === 0 && hours === 0){
-            $('body').addClass('red');
             setInterval(function(){
                 location.reload();
             }, 5000)
@@ -47,7 +46,6 @@ countdownApp.countingDown = function(minutes){
         seconds = seconds - 1;
         $('#seconds').text(seconds);
 
-        
         if (seconds <= 0 && minutes > 0) {
             clearInterval(timer);
             countdownApp.countingDown(minutes);
@@ -56,6 +54,7 @@ countdownApp.countingDown = function(minutes){
         }
 
         //TODO - make error handling for 0 minutes and 0 seconds, skip it
+        //TODO - fix the seconds when less than 10, theres a 0 in front
 
     }, 1000)
 }
@@ -74,14 +73,14 @@ countdownApp.getQuotes = function(query) {
     url: `https://quote-garden.herokuapp.com/api/v2/genre/${query}?page=1&limit=10`,
     method: 'GET',
     dataType: 'JSON',
-    // data: {
-        // genreName: query
-        
-    // } 
     }).then(function(result){
         console.log(result);
     })
 }
+
+//listen for the user to "select" an option from the drop down menu
+//one it is selected, take the option's value and store it in a variable
+//then pass the variable in as an argument to the get quotes function 
 countdownApp.getSelectValue = function(){
 
     $('select').on('change', function(){
@@ -92,8 +91,6 @@ countdownApp.getSelectValue = function(){
 
     });
 }
-
-
 
 // on click of the break button, change to computer screen 
 countdownApp.changeScreen = function(){
