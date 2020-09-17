@@ -8,7 +8,7 @@ countdownApp.startTimer = function(selectedBreakTime){
     if (selectedBreakTime === 'break15'){
         minutesTime = 15;
         $('#minutes').text(minutesTime);
-        console.log(minutesTime);
+        // console.log(minutesTime);
 
     } else if (selectedBreakTime === 'break30'){
         minutesTime = 30;
@@ -20,13 +20,13 @@ countdownApp.startTimer = function(selectedBreakTime){
     }
 
     countdownApp.countingDown(minutesTime);
-    console.log(minutesTime);
+    // console.log(minutesTime);
 }
 
 
 countdownApp.countingDown = function(minutes){
 
-    console.log(minutes);
+    // console.log(minutes);
 
     if (minutes > 0) {
         minutes = minutes - 1
@@ -43,7 +43,7 @@ countdownApp.countingDown = function(minutes){
             }, 5000)
             return;
         }
-        console.log(seconds);
+        // console.log(seconds);
         seconds = seconds - 1;
         $('#seconds').text(seconds);
 
@@ -56,7 +56,7 @@ countdownApp.countingDown = function(minutes){
         }
 
         //TODO - make error handling for 0 minutes and 0 seconds, skip it
-       
+
     }, 1000)
 }
 
@@ -69,10 +69,35 @@ countdownApp.changeBreak = function(){
     });
 }
 
+countdownApp.getQuotes = function(query) {
+    $.ajax({
+    url: `https://quote-garden.herokuapp.com/api/v2/genre/${query}?page=1&limit=10`,
+    method: 'GET',
+    dataType: 'JSON',
+    // data: {
+        // genreName: query
+        
+    // } 
+    }).then(function(result){
+        console.log(result);
+    })
+}
+countdownApp.getSelectValue = function(){
+
+    $('select').on('change', function(){
+
+        const mood = $('option:selected').val();
+        countdownApp.getQuotes(mood);
+        console.log(mood);
+
+    });
+}
+
 
 
 // on click of the break button, change to computer screen 
 countdownApp.changeScreen = function(){
+
     //when a break button is clicked
     $('.breakStart').on('click', function (event) {
         // console.log('works');
@@ -82,6 +107,7 @@ countdownApp.changeScreen = function(){
         // console.log(this);
         countdownApp.startTimer(userBreakChoice);
         countdownApp.changeBreak();
+        countdownApp.getSelectValue();
     })
 }
 
