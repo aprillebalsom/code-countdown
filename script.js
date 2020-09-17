@@ -1,5 +1,9 @@
 //create app object to hold all methods
 const countdownApp = {};
+
+// //GLOBAL VARIABLE
+// countdownApp.mood = $('option:selected').val();
+
 // //trigger time interval countdown 
 countdownApp.startTimer = function(selectedBreakTime){
 
@@ -71,19 +75,55 @@ countdownApp.changeBreak = function(){
 
 countdownApp.getQuotes = function(query) {
     $.ajax({
-        url: `https://quote-garden.herokuapp.com/api/v2/genre/${query}?page=1&limit=270`,
+        url: `https://quote-garden.herokuapp.com/api/v2/genre/${query}?page=1&limit=5`,
     method: 'GET',
     dataType: 'JSON',
     }).then(function(result){
-        // console.log(result);
-        countdownApp.displayQuotes(result)
+        console.log(result);
+        // countdownApp.displayQuotes(result)
+        countdownApp.randomQuotes(result)
     })
 }
 
-countdownApp.displayQuotes = function(quoteResults){
+countdownApp.randomQuotesArray = [];
+countdownApp.randomQuotes = function (quoteResults) {
+
+    const returnedQuotes = quoteResults.message
+    const mood = $('option:selected').val();
+   
+    for (let i = 0; i < quoteResults.quotes.length; i++) {
+
+        if (`Quotes in ${mood} genre` === returnedQuotes) {
+
+            const selectedQuote = quoteResults.quotes[i].quoteText;
+            
+            countdownApp.randomQuotesArray.push(selectedQuote);
+            // console.log(countdownApp.randomQuotesArray);
+            
+            // const theQuote = randomizer(countdownApp.randomQuotesArray);
+            // console.log(theQuote);
     
-    const selectedQuote = quoteResults.quotes[0].quoteText;
-    // console.log(selectedQuote);
+        } else {
+            console.log('error');
+        }
+
+
+    }
+
+    randomizer(countdownApp.randomQuotesArray);
+   
+}
+
+function randomizer (array) {
+    // Generate random number withihn the range of indexes in my array
+    const selectedRandomQuote = Math.floor(Math.random() * array.length);
+    console.log(array[selectedRandomQuote]);
+   
+    // countdownApp.displayQuotes(array[selectRandomQuote])
+}
+
+
+countdownApp.displayQuotes = function(quoteResults){
 
     const p = $('<p>').text(`"${selectedQuote}"`);
 
@@ -95,7 +135,7 @@ countdownApp.displayQuotes = function(quoteResults){
 //then pass the variable in as an argument to the get quotes function 
 countdownApp.getSelectValue = function(){
 
-    $('select').on('change', function(){
+    $('select').on('change', function (){
 
         const mood = $('option:selected').val();
         $('.appendedQuotes').empty();
@@ -103,8 +143,9 @@ countdownApp.getSelectValue = function(){
         // console.log(mood);
 
     });
-}
 
+}
+    
 // on click of the break button, change to computer screen 
 countdownApp.changeScreen = function(){
 
@@ -117,7 +158,7 @@ countdownApp.changeScreen = function(){
         // console.log(this);
         countdownApp.startTimer(userBreakChoice);
         countdownApp.changeBreak();
-        countdownApp.getSelectValue();
+        countdownApp.getSelectValue(countdownApp.mood );
     })
 }
 
@@ -126,6 +167,8 @@ countdownApp.init = function () {
     $('main').hide();
     // console.log('yay');
     countdownApp.changeScreen();
+    // console.log(countdownApp.mood);
+
 };
 
 //document ready function
