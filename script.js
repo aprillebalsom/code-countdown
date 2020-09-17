@@ -1,24 +1,25 @@
 //create app object to hold all methods
 const countdownApp = {};
 
-// //GLOBAL VARIABLE
-// countdownApp.mood = $('option:selected').val();
 
-// //trigger time interval countdown 
+// set the time for the interval countdown based on user's selected break time
 countdownApp.startTimer = function(selectedBreakTime){
 
     let minutesTime = 0;
 
     if (selectedBreakTime === 'break15'){
+
         minutesTime = 15;
         $('#minutes').text(minutesTime);
         // console.log(minutesTime);
 
     } else if (selectedBreakTime === 'break30'){
+
         minutesTime = 30;
         $('#minutes').text(minutesTime);
         
     } else {
+
         minutesTime = 45;
         $('#minutes').text(minutesTime);
     }
@@ -27,7 +28,7 @@ countdownApp.startTimer = function(selectedBreakTime){
     // console.log(minutesTime);
 }
 
-
+//begin set interval timer and start counting break down 
 countdownApp.countingDown = function(minutes){
 
     // console.log(minutes);
@@ -40,22 +41,22 @@ countdownApp.countingDown = function(minutes){
     let seconds = 60;
     const timer = setInterval(function () {
 
-        // if (seconds === 0 && minutes === 0 && hours === 0){
-        //     setInterval(function(){
-        //         location.reload();
-        //     }, 5000)
-        //     return;
-        // }
-        // console.log(seconds);
         seconds = seconds - 1;
         $('#seconds').text(seconds);
 
         if (seconds <= 0 && minutes > 0) {
+
+            //when the seconds get to 0, run the function again
             clearInterval(timer);
             countdownApp.countingDown(minutes);
+
         } else if (minutes <= 0 && seconds <= 0) {
+
+            //once time is up, alert the user that break is over
+            //reload to original page
             alert(`time's up, back to coding`);
             location.reload();
+
         }
 
         //TODO - make error handling for 0 minutes and 0 seconds, skip it
@@ -80,12 +81,13 @@ countdownApp.getQuotes = function(query) {
     dataType: 'JSON',
     }).then(function(result){
         console.log(result);
-        // countdownApp.displayQuotes(result)
+       
         countdownApp.randomQuotes(result)
     })
 }
 
 countdownApp.randomQuotesArray = [];
+
 countdownApp.randomQuotes = function (quoteResults) {
 
     const returnedQuotes = quoteResults.message
@@ -98,35 +100,41 @@ countdownApp.randomQuotes = function (quoteResults) {
             const selectedQuote = quoteResults.quotes[i].quoteText;
             
             countdownApp.randomQuotesArray.push(selectedQuote);
-            // console.log(countdownApp.randomQuotesArray);
-            
-            // const theQuote = randomizer(countdownApp.randomQuotesArray);
-            // console.log(theQuote);
-    
+
         } else {
             console.log('error');
         }
-
-
     }
-
-    randomizer(countdownApp.randomQuotesArray);
-   
+    console.log(countdownApp.randomQuotesArray);
+    countdownApp.randomizer(countdownApp.randomQuotesArray);
 }
 
-function randomizer (array) {
-    // Generate random number withihn the range of indexes in my array
+
+//pick a random quote from the random quotes array
+//if user clicks on another quote button, run the randomizer function again and select a new quote of the same genre
+//call the display function
+countdownApp.randomizer = function (array) {
+ 
     const selectedRandomQuote = Math.floor(Math.random() * array.length);
+    countdownApp.displayQuotes(array[selectedRandomQuote]);
+
     console.log(array[selectedRandomQuote]);
-   
-    // countdownApp.displayQuotes(array[selectRandomQuote])
+
+    $('#anotherQuote').on('click', function (event) {
+       
+        countdownApp.randomizer(countdownApp.randomQuotesArray);
+
+        $('.appendedQuotes').empty();
+        countdownApp.displayQuotes(array[selectedRandomQuote]);
+    });
+    
 }
 
 
-countdownApp.displayQuotes = function(quoteResults){
+//display the quote on the page
+countdownApp.displayQuotes = function(selectedQuote){
 
     const p = $('<p>').text(`"${selectedQuote}"`);
-
     $('.appendedQuotes').append(p);
 }
 
@@ -138,15 +146,16 @@ countdownApp.getSelectValue = function(){
     $('select').on('change', function (){
 
         const mood = $('option:selected').val();
+        countdownApp.randomQuotesArray = [];
+
         $('.appendedQuotes').empty();
         countdownApp.getQuotes(mood);
         // console.log(mood);
-
     });
 
 }
     
-// on click of the break button, change to computer screen 
+// on click of the break button, change to main screen 
 countdownApp.changeScreen = function(){
 
     //when a break button is clicked
@@ -158,7 +167,7 @@ countdownApp.changeScreen = function(){
         // console.log(this);
         countdownApp.startTimer(userBreakChoice);
         countdownApp.changeBreak();
-        countdownApp.getSelectValue(countdownApp.mood );
+        countdownApp.getSelectValue(countdownApp.mood);
     })
 }
 
