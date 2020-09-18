@@ -76,12 +76,12 @@ countdownApp.changeBreak = function(){
 
 countdownApp.getQuotes = function(query) {
     $.ajax({
-        url: `https://quote-garden.herokuapp.com/api/v2/genre/${query}?page=1&limit=5`,
+        url: `https://quote-garden.herokuapp.com/api/v2/genre/${query}?page=1&limit=270`,
     method: 'GET',
     dataType: 'JSON',
     }).then(function(result){
         console.log(result);
-       
+
         countdownApp.randomQuotes(result)
     })
 }
@@ -92,7 +92,7 @@ countdownApp.randomQuotes = function (quoteResults) {
 
     const returnedQuotes = quoteResults.message
     const mood = $('option:selected').val();
-   
+
     for (let i = 0; i < quoteResults.quotes.length; i++) {
 
         if (`Quotes in ${mood} genre` === returnedQuotes) {
@@ -114,20 +114,29 @@ countdownApp.randomQuotes = function (quoteResults) {
 //if user clicks on another quote button, run the randomizer function again and select a new quote of the same genre
 //call the display function
 countdownApp.randomizer = function (array) {
- 
+
     const selectedRandomQuote = Math.floor(Math.random() * array.length);
+    $('.appendedQuotes').empty();
+
     countdownApp.displayQuotes(array[selectedRandomQuote]);
 
     console.log(array[selectedRandomQuote]);
 
-    $('#anotherQuote').on('click', function (event) {
-       
-        countdownApp.randomizer(countdownApp.randomQuotesArray);
+    // $('#anotherQuote').on('click', function (event) {
 
-        $('.appendedQuotes').empty();
-        countdownApp.displayQuotes(array[selectedRandomQuote]);
-    });
-    
+    //     countdownApp.randomizer(countdownApp.randomQuotesArray);
+
+    //     $('.appendedQuotes').empty();
+    //     countdownApp.displayQuotes(array[selectedRandomQuote]);
+    // });
+
+}
+
+// get random quote every 15 seconds from the same genre the user has selected
+countdownApp.switchQuotes = function() {
+    setInterval(function () {
+        countdownApp.randomizer(countdownApp.randomQuotesArray);
+    }, 5000) 
 }
 
 
@@ -148,13 +157,16 @@ countdownApp.getSelectValue = function(){
         const mood = $('option:selected').val();
         countdownApp.randomQuotesArray = [];
 
+        countdownApp.switchQuotes();
+
         $('.appendedQuotes').empty();
         countdownApp.getQuotes(mood);
         // console.log(mood);
+
     });
 
 }
-    
+
 // on click of the break button, change to main screen 
 countdownApp.changeScreen = function(){
 
