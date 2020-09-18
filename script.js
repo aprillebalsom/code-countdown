@@ -137,17 +137,20 @@ countdownApp.randomizer = function (array) {
 
 // get random quote every 15 seconds from the same genre the user has selected
 countdownApp.switchQuotes = function() {
+  
     setInterval(function () {
         countdownApp.randomizer(countdownApp.randomQuotesArray);
-    }, 10000) 
+    }, 5000) 
+
 }
+
 
 
 //display the quote on the page
 countdownApp.displayQuotes = function(selectedQuote){
 
     const quoteP = $('<p>').text(`"${selectedQuote.quoteText}"`);
-    const authorP = $('<p>').text(`"${selectedQuote.quoteAuthor}"`);
+    const authorP = $('<p>').text(`-${selectedQuote.quoteAuthor}`);
     $('.appendedQuotes').append(quoteP, authorP);
 
 
@@ -162,7 +165,7 @@ countdownApp.getSelectValue = function(){
 
         const mood = $('option:selected').val();
         countdownApp.randomQuotesArray = [];
-
+        
         countdownApp.switchQuotes();
 
         $('.appendedQuotes').empty();
