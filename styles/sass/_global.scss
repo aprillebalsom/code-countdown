@@ -23,6 +23,22 @@ h1 {
     letter-spacing: 4px;
     
     padding: 20px 0;
+
+    position: relative;
+
+    &::before {
+        content: '';
+
+        background-color: $buttonColor;
+        opacity: .9;
+        width: 95%;
+        height: 35%;
+
+        position: absolute;
+        bottom: 17%;
+        left: -3%;
+        z-index: -10;
+    }
 }
 
 h2 {
