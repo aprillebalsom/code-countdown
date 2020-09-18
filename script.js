@@ -80,7 +80,7 @@ countdownApp.getQuotes = function(query) {
     method: 'GET',
     dataType: 'JSON',
     }).then(function(result){
-        console.log(result);
+        // console.log(result); 
 
         countdownApp.randomQuotes(result)
     })
@@ -97,16 +97,21 @@ countdownApp.randomQuotes = function (quoteResults) {
 
         if (`Quotes in ${mood} genre` === returnedQuotes) {
 
-            const selectedQuote = quoteResults.quotes[i].quoteText;
-            
-            countdownApp.randomQuotesArray.push(selectedQuote);
+            const selectedQuote = quoteResults.quotes[i];
 
-        } else {
-            console.log('error');
-        }
+            countdownApp.randomQuotesArray.push(selectedQuote);
+            
+            //gets the author but still need to figure out how to get the right author for the selectedquote
+            // const author = quoteResults[i].quoteAuthor
+            // console.log(quoteResults[i]);
+            // console.log(selectedQuote);
+
+        } 
     }
-    console.log(countdownApp.randomQuotesArray);
+
+    // console.log(countdownApp.randomQuotesArray);
     countdownApp.randomizer(countdownApp.randomQuotesArray);
+    
 }
 
 
@@ -119,8 +124,6 @@ countdownApp.randomizer = function (array) {
     $('.appendedQuotes').empty();
 
     countdownApp.displayQuotes(array[selectedRandomQuote]);
-
-    console.log(array[selectedRandomQuote]);
 
     // $('#anotherQuote').on('click', function (event) {
 
@@ -136,15 +139,18 @@ countdownApp.randomizer = function (array) {
 countdownApp.switchQuotes = function() {
     setInterval(function () {
         countdownApp.randomizer(countdownApp.randomQuotesArray);
-    }, 5000) 
+    }, 10000) 
 }
 
 
 //display the quote on the page
 countdownApp.displayQuotes = function(selectedQuote){
 
-    const p = $('<p>').text(`"${selectedQuote}"`);
-    $('.appendedQuotes').append(p);
+    const quoteP = $('<p>').text(`"${selectedQuote.quoteText}"`);
+    const authorP = $('<p>').text(`"${selectedQuote.quoteAuthor}"`);
+    $('.appendedQuotes').append(quoteP, authorP);
+
+
 }
 
 //listen for the user to "select" an option from the drop down menu
@@ -161,7 +167,6 @@ countdownApp.getSelectValue = function(){
 
         $('.appendedQuotes').empty();
         countdownApp.getQuotes(mood);
-        // console.log(mood);
 
     });
 
@@ -172,11 +177,9 @@ countdownApp.changeScreen = function(){
 
     //when a break button is clicked
     $('.breakStart').on('click', function (event) {
-        // console.log('works');
         $('header').hide();
         $('main').show();
         const userBreakChoice = $(this).attr('id');
-        // console.log(this);
         countdownApp.startTimer(userBreakChoice);
         countdownApp.changeBreak();
         countdownApp.getSelectValue(countdownApp.mood);
@@ -186,14 +189,11 @@ countdownApp.changeScreen = function(){
 //init function that kicks off the app
 countdownApp.init = function () { 
     $('main').hide();
-    // console.log('yay');
     countdownApp.changeScreen();
-    // console.log(countdownApp.mood);
 
 };
 
 //document ready function
 $(function () { 
-    // console.log('hello');
     countdownApp.init();
 });
