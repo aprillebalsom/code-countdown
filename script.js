@@ -150,7 +150,7 @@ countdownApp.switchQuotes = function() {
 countdownApp.displayQuotes = function(selectedQuote){
 
     const quoteP = $('<p>').text(`"${selectedQuote.quoteText}"`);
-    const authorP = $('<p>').text(`-${selectedQuote.quoteAuthor}`);
+    const authorP = $('<p>').text(`-${selectedQuote.quoteAuthor}`).addClass('author');
     $('.appendedQuotes').append(quoteP, authorP);
 
 

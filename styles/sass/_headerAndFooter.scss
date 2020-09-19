@@ -14,12 +14,13 @@ header {
     }
 
     .question {
+        font-size: clamp(2rem, 3vw, 2.3rem);
         padding: 20px 0;
     }
 
     p {
         width: 65%;
-        padding: 20px 0;
+        padding: 25px 0;
     }
 
 }
@@ -32,4 +33,18 @@ ul {
 
 li {
     margin: 20px;
+}
+
+footer {
+    background-color: $footerColor;
+
+    text-align: right;
+
+    padding: 20px 0;
+
+    p {
+        font-size: 1.6rem;
+        text-align: right;
+        text-transform: none;
+    }
 }

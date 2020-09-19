@@ -280,7 +280,11 @@ body {
   color: #2D2D2D;
   font-family: lft-etica-mono, sans-serif;
   letter-spacing: 2px;
-  font-size: clamp(1.6rem, 3vw, 2rem);
+  font-size: clamp(1.6rem, 2vw, 2rem);
+}
+
+header {
+  height: 100vh;
 }
 
 h1,
@@ -292,8 +296,13 @@ p {
 h1 {
   text-transform: uppercase;
   letter-spacing: 4px;
-  padding: 20px 0;
+  padding-top: 60px;
   position: relative;
+  z-index: 10;
+}
+
+h1 span {
+  white-space: nowrap;
 }
 
 h1::before {
@@ -301,16 +310,16 @@ h1::before {
   background-color: #E5E5DF;
   opacity: .9;
   width: 95%;
-  height: 35%;
+  height: 25%;
   position: absolute;
-  bottom: 17%;
+  bottom: -2%;
   left: -3%;
   z-index: -10;
 }
 
 h2 {
   text-transform: lowercase;
-  padding: 30px 0 20px;
+  padding: 80px 0 20px;
 }
 
 p {
@@ -327,17 +336,15 @@ button {
   background-color: #E5E5DF;
   border: 1px solid #414141;
   padding: 20px 25px;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
-footer {
-  background-color: #8E735A;
-  text-align: right;
-  padding: 20px 0;
-}
-
-footer p {
-  text-align: right;
-  text-transform: none;
+button:hover, button:focus {
+  background-color: #ececec;
+  -webkit-transform: translateY(-5px);
+          transform: translateY(-5px);
+  cursor: pointer;
 }
 
 .wrapper {
@@ -368,12 +375,13 @@ header section {
 }
 
 header .question {
+  font-size: clamp(2rem, 3vw, 2.3rem);
   padding: 20px 0;
 }
 
 header p {
   width: 65%;
-  padding: 20px 0;
+  padding: 25px 0;
 }
 
 ul {
@@ -392,8 +400,26 @@ li {
   margin: 20px;
 }
 
+footer {
+  background-color: #8E735A;
+  text-align: right;
+  padding: 20px 0;
+}
+
+footer p {
+  font-size: 1.6rem;
+  text-align: right;
+  text-transform: none;
+}
+
 .computerScreen {
-  padding-top: 20px;
+  background-image: url(../styles/assets/computer.png);
+  background-size: contain;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 90vh;
+  margin-top: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -414,15 +440,20 @@ li {
   z-index: 10;
 }
 
+.computerScreenContents h2 {
+  padding-top: 50px;
+}
+
 form {
   padding: 20px;
   width: 100%;
+  margin: 0 auto;
 }
 
 select {
   border: 1px solid #414141;
+  letter-spacing: 2px;
   padding: 10px 50px 10px 5px;
-  width: 100%;
 }
 
 .appendedQuotes {
@@ -440,34 +471,52 @@ select {
 }
 
 .appendedQuotes p {
-  padding: 30px 0;
+  font-size: 1.7rem;
+  padding-top: 10px;
+  width: 73%;
 }
 
-.appendedQuotes button {
-  width: 30%;
-}
-
-.timer {
-  padding: 10px 0 10px 90px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.countdownClock {
-  position: absolute;
-  bottom: -10%;
-}
-
-.clockImage {
-  width: 30%;
-  position: relative;
+p.author {
+  font-size: 1.6rem;
+  font-style: italic;
+  padding: 15px 0 0;
 }
 
 .clockContents {
+  display: inline-block;
+  background-color: #557D87;
+  padding: 15px 30px;
   position: absolute;
-  top: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.clockContents h3 {
+  padding-bottom: 15px;
+}
+
+.clockContents button {
+  width: 100%;
+  padding: 5px;
+  margin-top: 15px;
+}
+
+.clockContents button:hover, .clockContents button:focus {
+  -webkit-transform: none;
+          transform: none;
+}
+
+.timer {
+  background-color: #E5E5DF;
+  font-size: clamp(1.6rem, 5vw, 5.5rem);
+  padding: 20px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }

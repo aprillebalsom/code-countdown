@@ -7,100 +7,127 @@
     <title>CODE COUNTDOWN</title>
     <!-- FAVICON -->
     <link rel="icon" href="./styles/assets/favicon.png">
-
     <!-- ADOBE FONTS LINK -->
     <link rel="stylesheet" href="https://use.typekit.net/obi8dyy.css">
-
     <!-- STYLE SHEET -->
     <link rel="stylesheet" href="styles/style.css">
 
 </head>
 <body>
     <!-- START OF HEADER -->
-    <header class="wrapper">
-        <section class="welcomeScreen">
-            <!-- span is to allow the <h1> tags to show up in the browser -->
-            <h1> <<span>h1></span> Code countdown <<span>/h1></span> </h1>
+    <header>
+        <div class="wrapper">
+            <section class="welcomeScreen">
+                <!-- span is to allow the <h1> tags to show up in the browser -->
+                <h1> <<span>h1></span> Code countdown <<span>/h1></span> </h1>
 
-            <p class="question">Need a break from coding?</p>
-            <p>Code countdown will count your break down for you AND inspire you to continue coding!</p>
+                <p class="question">Need a break from coding?</p>
 
-            <h2>Choose a break time:</h2>
+                <p>Code countdown will count your break down for you AND inspire you to continue coding!</p>
 
-            <ul>
-                <li><button class="breakStart" id="break15">15 minutes</button></li>
-                <li><button class="breakStart" id="break30">30 minutes</button></li>
-                <li><button class="breakStart" id="break45">45 minutes</button></li>
-            </ul>
-        </section>
+                <h2>Choose a break time:</h2>
+
+                <ul>
+                    <li><button class="breakStart" id="break15">15 minutes</button></li>
+                    <li><button class="breakStart" id="break30">30 minutes</button></li>
+                    <li><button class="breakStart" id="break45">45 minutes</button></li>
+                </ul>
+            </section>
+        </div>
     </header>
 
     <!-- START OF MAIN -->
-    <main class="wrapper">
-        <section class="computerScreen">
+    <main>
+        <div class="wrapper">
+            <section class="computerScreen">
 
-            <div class="computer">
-                <img src="./styles/assets/computer.png" alt="A black computer monitor icon"> 
-            </div>
-            
-            <div class="computerScreenContents">
-                <h2>What is your mood?</h2>
-
-                <form action="">
-
-                    <select name="moods">
-
-                    
-                        
-                        <option value="mood" selected="selected">mood</option>
-
-                        <option value="happiness">happy</option>
-                        <option value="cool">calm</option>
-                        <option value="education">uninspired</option>
-                        <option value="imagination">creative</option> 
-                        <option value="funny">giggly</option>
-                    
-                    </select>
-
-                </form>
-        
-                <div class="appendedContainer">
-                    <div class="appendedQuotes">
-                        <!-- appened quote -->
-                    </div>
-                    <!-- <button id="anotherQuote" >another quote</button> -->
-                </div>
-            
-            </div>
-            
-        </section>
-
-        <section class="countdownClock">
-
-            <div class="clockImage">
-                <img src="./styles/assets/clock.png" alt="">
-            </div>
-
-            <div class="clockContents">
-                <h3>countdown to code</h3>
-            
-            <div class="clockFlex">
-                <div class="timer">
-                    <p id="minutes"> <!--appended minutes --> </p>
-                    <p>:</p>
-                    <p id="seconds"> <!--appended seconds--> </p>
-                </div>
-
-                <button id="changeBreak">change break time</button>
-            </div>
+                <!-- <img src="./styles/assets/computer.png" alt="A black computer monitor icon">  -->
                 
-            </div>
+                
+                <div class="computerScreenContents">
+                    <h2>What is your mood?</h2>
 
-            <!-- <div>
-                <button id="changeBreak">change break time</button>
-            </div> -->
+                    <form action="">
 
-        </section>
+                        <select name="moods">
+
+                            <option value="mood" selected="selected">mood</option>
+
+                            <option value="happiness">happy</option>
+                            <option value="cool">calm</option>
+                            <option value="education">uninspired</option>
+                            <option value="imagination">creative</option> 
+                            <option value="funny">giggly</option>
+                        
+                        </select>
+
+                    </form>
+            
+                    <div class="appendedContainer">
+
+                        <div class="appendedQuotes">
+                            <!-- appened quote -->
+                        </div>
+
+                        <!-- <button id="anotherQuote" >another quote</button> -->
+                    </div>
+                
+                </div>
+
+                <div class="clockContents">
+                
+                    <h3>countdown to code</h3>
+                
+                    <!-- <div class="clockFlex"> -->
+                
+                    <div class="timer">
+                        <p id="minutes">
+                            <!--appended minutes -->
+                        </p>
+                        <p>:</p>
+                        <p id="seconds">
+                            <!--appended seconds-->
+                        </p>
+                    </div>
+                
+                    <button id="changeBreak">change break time</button>
+                
+                    <!-- </div> -->
+                
+                </div>
+                
+            </section>
+
+            <!-- <section class="clockContents"> -->
+
+                <!-- <div class="clockImage">
+                    <img src="./styles/assets/clock.png" alt="A blue and white clock">
+                </div> -->
+
+                <!-- <div class="clockContents">
+
+                    <h3>countdown to code</h3>
+                 -->
+                    <!-- <div class="clockFlex"> -->
+
+                        <!-- <div class="timer">
+                            <p id="minutes"> appended minutes </p>
+                            <p>:</p>
+                            <p id="seconds"> appended seconds </p> -->
+                        <!-- </div>
+
+                        <button id="changeBreak">change break time</button> -->
+
+                    <!-- </div> -->
+                    
+                <!-- </div> -->
+
+                <!-- <div>
+                    <button id="changeBreak">change break time</button>
+                </div> -->
+
+            <!-- </section> -->
+        </div>
     </main>
 
     <!-- START OF FOOTER -->
@@ -113,10 +140,9 @@
 
 
     <!-- JQUERY / JAVASCRIPT -->
-    <script src='https://code.jquery.com/jquery-3.4.0.min.js'
-        integrity='sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=' crossorigin='anonymous'></script>
+    <script src='https://code.jquery.com/jquery-3.4.0.min.js' integrity='sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=' crossorigin='anonymous'></script>
+
     <script src="script.js"></script>
 
 </body>
-
 </html>
