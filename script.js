@@ -38,8 +38,16 @@ countdownApp.countingDown = function(minutes){
         $('#minutes').text(minutes);
     }
 
-    let seconds = 60;
+    let seconds = 14;
     const timer = setInterval(function () {
+
+        if (seconds <= 10) {
+            $('#test').text(0);
+
+        } else (seconds >= 10) {
+            $('#test').empty();
+            
+        }
 
         seconds = seconds - 1;
         $('#seconds').text(seconds);
