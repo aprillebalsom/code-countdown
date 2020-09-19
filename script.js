@@ -44,7 +44,7 @@ countdownApp.countingDown = function(minutes){
         if (seconds <= 10) {
             $('#test').text(0);
 
-        } else (seconds >= 10) {
+        } else if (seconds >= 10) {
             $('#test').empty();
             
         }
@@ -188,9 +188,11 @@ countdownApp.changeScreen = function(){
 
     //when a break button is clicked
     $('.breakStart').on('click', function (event) {
+
         $('header').hide();
         $('main').show();
         const userBreakChoice = $(this).attr('id');
+
         countdownApp.startTimer(userBreakChoice);
         countdownApp.changeBreak();
         countdownApp.getSelectValue(countdownApp.mood);
