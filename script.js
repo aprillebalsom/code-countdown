@@ -47,10 +47,10 @@ countdownApp.countingDown = function(minutes){
     const timer = setInterval(function () {
 
         if (seconds <= 10) {
-            $('#test').text(0);
+            $('#additionalInteger').text(0);
 
         } else if (seconds >= 10) {
-            $('#test').empty();
+            $('#additionalInteger').empty();
             
         }
 
@@ -113,7 +113,7 @@ countdownApp.randomQuotes = function (quoteResults) {
         } 
     }
     // console.log(countdownApp.randomQuotesArray);
-    countdownApp.randomizer(countdownApp.randomQuotesArray);
+    // countdownApp.randomizer(countdownApp.randomQuotesArray);
 
 }
 
@@ -128,9 +128,10 @@ countdownApp.randomizer = function (array) {
 
     countdownApp.displayQuotes(array[selectedRandomQuote]);
 
+    console.log(array[selectedRandomQuote].quoteGenre);
     // $('#anotherQuote').on('click', function (event) {
 
-    //     countdownApp.randomizer(countdownApp.randomQuotesArray);
+        // countdownApp.randomizer(countdownApp.randomQuotesArray);
 
     //     $('.appendedQuotes').empty();
     //     countdownApp.displayQuotes(array[selectedRandomQuote]);
@@ -139,13 +140,13 @@ countdownApp.randomizer = function (array) {
 }
 
 // get random quote every 15 seconds from the same genre the user has selected
-countdownApp.switchQuotes = function() {
-  
-    setInterval(function () {
-        countdownApp.randomizer(countdownApp.randomQuotesArray);
-    }, 5000) 
+// countdownApp.switchQuotes = function() {
 
-}
+//     setInterval(function () {
+//         countdownApp.randomizer(countdownApp.randomQuotesArray);
+//     }, 5000) 
+
+// }
 
 
 
@@ -169,7 +170,11 @@ countdownApp.getSelectValue = function(){
         const mood = $('option:selected').val();
         countdownApp.randomQuotesArray = [];
         
-        countdownApp.switchQuotes();
+        // countdownApp.switchQuotes();
+        clearInterval(countdownApp.switchQuotes);
+        countdownApp.switchQuotes = setInterval(function () {
+            countdownApp.randomizer(countdownApp.randomQuotesArray)
+        }, 10000);
 
         $('.appendedQuotes').empty();
         countdownApp.getQuotes(mood);
