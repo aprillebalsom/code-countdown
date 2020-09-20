@@ -1,6 +1,8 @@
 //create app object to hold all methods
 const countdownApp = {};
 
+//empty array for storing quote objects returned by API allowing radomizer function to select a quote at random to append to the page
+countdownApp.randomQuotesArray = [];
 
 // set the time for the interval countdown based on user's selected break time
 countdownApp.startTimer = function(selectedBreakTime){
@@ -11,17 +13,20 @@ countdownApp.startTimer = function(selectedBreakTime){
 
         minutesTime = 15;
         $('#minutes').text(minutesTime);
+        $('#seconds').text('00');
         // console.log(minutesTime);
 
     } else if (selectedBreakTime === 'break30'){
 
         minutesTime = 30;
         $('#minutes').text(minutesTime);
+        $('#seconds').text('00');
         
     } else {
 
         minutesTime = 45;
         $('#minutes').text(minutesTime);
+        $('#seconds').text('00');
     }
 
     countdownApp.countingDown(minutesTime);
@@ -68,7 +73,6 @@ countdownApp.countingDown = function(minutes){
         }
 
         //TODO - make error handling for 0 minutes and 0 seconds, skip it
-        //TODO - fix the seconds when less than 10, theres a 0 in front
 
     }, 1000)
 }
@@ -89,12 +93,9 @@ countdownApp.getQuotes = function(query) {
     dataType: 'JSON',
     }).then(function(result){
         // console.log(result); 
-
         countdownApp.randomQuotes(result)
     })
 }
-
-countdownApp.randomQuotesArray = [];
 
 countdownApp.randomQuotes = function (quoteResults) {
 
@@ -108,18 +109,12 @@ countdownApp.randomQuotes = function (quoteResults) {
             const selectedQuote = quoteResults.quotes[i];
 
             countdownApp.randomQuotesArray.push(selectedQuote);
-            
-            //gets the author but still need to figure out how to get the right author for the selectedquote
-            // const author = quoteResults[i].quoteAuthor
-            // console.log(quoteResults[i]);
-            // console.log(selectedQuote);
 
         } 
     }
-
     // console.log(countdownApp.randomQuotesArray);
     countdownApp.randomizer(countdownApp.randomQuotesArray);
-    
+
 }
 
 
@@ -183,7 +178,7 @@ countdownApp.getSelectValue = function(){
 
 }
 
-// on click of the break button, change to main screen 
+// three - when a user clicks on one of the break buttons, change to main screen 
 countdownApp.changeScreen = function(){
 
     //when a break button is clicked
@@ -199,14 +194,14 @@ countdownApp.changeScreen = function(){
     })
 }
 
-//init function that kicks off the app
+//two - init function that kicks off the app
 countdownApp.init = function () { 
     $('main').hide();
     countdownApp.changeScreen();
 
 };
 
-//document ready function
+//one - document ready function
 $(function () { 
     countdownApp.init();
 });

@@ -1,4 +1,6 @@
 //MAIN STYLES
+
+//COMPUTER STYLES
 .computerScreen {
     background-image: url(../styles/assets/computer.png);
     background-size: contain;
@@ -16,14 +18,16 @@
     position: relative;
 }
 
-
 .computerScreenContents {
+    text-align: center;
+
     width: 75%;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
-    // align-items: center;
-    text-align: center;
+
+
     position: absolute;
     top: 13%;
     z-index: 10;
@@ -41,18 +45,16 @@ form {
 
 select {
     border: 1px solid $accentColor;
+
     letter-spacing: 2px;
+
     padding: 10px 50px 10px 5px;
     width: 50%;
+
+    &:focus {
+        border: 4px solid $buttonHoverColor;
+    }
 }
-
-
-// .appendedContainer {
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: center;
-//     align-items: center;
-// }
 
 .appendedQuotes {
 
@@ -65,14 +67,7 @@ select {
         font-size: 1.7rem;
 
         padding-top: 10px;
-    
     }
-
-    
-    
-    // button {
-    //    width: 30%;
-    // }
 }
 
 p.author {
@@ -83,33 +78,22 @@ p.author {
 }
 
 
-//CLOCK TIMER S
-// .countdownClock {
-//     display: inline-block;
-//     // position:absolute;
-
-//     // bottom: 80%;
-// }
-
-// .clockImage {
-//     width: 40%;
-
-//     position: relative;
-// }
-
+//CLOCK TIMER STYLES
 .clockContents {
-    display: inline-block;
     background-color: $secondaryBackgroundColor;
+  
+    border-radius: 10px 10px 0 0;
     padding: 15px 30px;
+
+    display: inline-block;
+
     position: absolute;
     bottom: 0;
     left: 0;
     
-
     h3 {
         padding-bottom: 15px;
     }
-
 
     button {
         width: 100%;
@@ -119,15 +103,63 @@ p.author {
         &:hover,
         &:focus {
         transform: none;
+        transition: .5s all;
+        background-color: $buttonHoverColor;
         }   
     }
 }
 
 .timer {
     background-color: $buttonColor;
+
     font-size: clamp(1.6rem, 5vw, 5.5rem);
+
     padding: 20px 0;
+
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+
+
+//MUSIC STYLES
+.music {
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+
+    h4 {
+        text-align: center;
+        text-transform: lowercase;
+        font-weight: 300;
+
+        padding-bottom: 10px;
+
+        position: relative;
+
+        &::before {
+            content: '';
+
+            background-color: $buttonColor;
+            opacity: .9;
+
+            width: 95%;
+            height: 30%;
+
+            position: absolute;
+            top: 40%;
+            right: 10%;
+            z-index: -10;
+        }
+    }
+
+    audio {
+        width: 200px;
+
+        &:hover,
+        &:focus {
+            border: 4px solid $buttonColor; 
+        }
+    }
 }

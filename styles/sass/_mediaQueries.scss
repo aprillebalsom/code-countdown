@@ -37,6 +37,15 @@
         padding: 10px 0;
     }
 
+    .music {
+        bottom: 7%;
+        right: 15%;
+
+        h4::before {
+            display: none;
+        }
+    }
+
 }
 
 
@@ -80,14 +89,46 @@
         padding-top: 10px;
     }
 
+
+    .music {
+        background-color: $secondaryBackgroundColor;
+
+        width: 120px;
+        padding: 10px;
+        border-radius: 10px 10px 0 0;
+
+        right: 0;
+        bottom: 0;
+
+        h4 {
+            background-color: $buttonColor;
+            border-radius: 10px;
+            
+            padding-top: 5px;
+            margin-bottom: 10px;
+        }
+
+        audio {
+            width:100px;
+        }
+        
+    }
+
+    footer p {
+        text-align: left;
+    }
+
 }
 
 //PORTRAIT PHONES + DOWN
-
 @media (max-width: 490px) {
 
-    .wrapper {
+    main.wrapper {
         width: 98%;
+    }
+
+    h2 {
+        text-align: center;
     }
 
     .computerScreen {
@@ -111,5 +152,7 @@
 
     footer p {
         font-size: 1.3rem;
+
+        padding-left: 20px;
     }
 }
