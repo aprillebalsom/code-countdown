@@ -9,29 +9,26 @@ body {
     
     font-family: $fontRegular;
     letter-spacing: 2px;
-    font-size: clamp(1.6rem, 2vw, 2rem);
+    font-size: 1.7rem
 }
-
-// header, 
-// main {
-//     background-color: $backgroundColor;
-// }
 
 header {
     height: 100vh;
 }
 
 h1, 
-h2, 
+h2,
+h3, 
+h4, 
 p {
     font-weight: 300;
+    text-align: center;
 }
 
 h1 {
     font-size: clamp(2rem, 3vw, 8rem);
     text-transform: uppercase;
     letter-spacing: 4px;
-    text-align: center;
     
     padding-top: 60px;
 
@@ -53,31 +50,36 @@ h1 {
     }
 }
 
-h2 {
-    font-size: clamp(1.8rem, 3vw 4rem);
+h2, 
+h3, 
+h4,
+p {
     text-transform: lowercase;
-    padding: 80px 0 20px;
-    
 }
 
+h2 {
+    font-size: clamp(1.8rem, 3vw 4rem);
+ 
+    padding: 80px 0 20px;
+
+}
 
 h3 {
-    width: clamp(1.6, 3vw, 2rem);
-
+    width: clamp(1.6, 3vw, 2rem); 
 }
 
 h4 {
     width: clamp(1.6, 3vw, 1.8rem);
 }
 
-p {
-    text-transform: lowercase;
-    text-align: center;
-}
 
 select,
 button {
+    color: $fontColor;
+
     font-family: $fontRegular;
+    font-weight: 300;
+
 }
 
 button {
