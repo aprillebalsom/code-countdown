@@ -468,8 +468,8 @@ footer p {
       -ms-flex-align: center;
           align-items: center;
   position: relative;
-  -webkit-animation-name: animateFromTop;
-          animation-name: animateFromTop;
+  -webkit-animation-name: animatetop;
+          animation-name: animatetop;
   -webkit-animation-duration: 0.4s;
           animation-duration: 0.4s;
 }
@@ -479,7 +479,7 @@ footer p {
   margin-top: 20px;
 }
 
-@-webkit-keyframes animateFromTop {
+@-webkit-keyframes animatetop {
   from {
     top: -300px;
     opacity: 0;
@@ -490,7 +490,7 @@ footer p {
   }
 }
 
-@keyframes animateFromTop {
+@keyframes animatetop {
   from {
     top: -300px;
     opacity: 0;

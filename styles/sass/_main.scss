@@ -37,7 +37,7 @@
 
     position: relative; 
   
-    animation-name: animateFromTop;
+    animation-name: animatetop;
     animation-duration: 0.4s
 }
 
@@ -47,7 +47,7 @@
     margin-top: 20px;
 }
 
-@keyframes animateFromTop {
+@keyframes animatetop {
     from {
         top: -300px; 
         opacity: 0;
