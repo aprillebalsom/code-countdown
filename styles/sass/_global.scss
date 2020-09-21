@@ -43,7 +43,7 @@ h1 {
         content: '';
 
         background-color: $buttonColor;
-        opacity: .9;
+        opacity: .5;
         width: 95%;
         height: 25%;
 
@@ -69,11 +69,11 @@ h2 {
 }
 
 h3 {
-    width: clamp(1.6, 3vw, 2rem); 
+    width: clamp(1.6, 3vw, 2.2rem); 
 }
 
 h4 {
-    width: clamp(1.6, 3vw, 1.8rem);
+    width: clamp(1.6, 3vw, 2rem);
 }
 
 
