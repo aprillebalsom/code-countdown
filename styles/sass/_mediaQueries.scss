@@ -3,9 +3,15 @@
 //LANDSCAPE TABLET + SMALLER DESKTOPS
 @media (max-width: 940px){
 
+
+    main {
+        background-image: url(../styles/assets/iPadLandscape.png);
+
+    }
+
     .computerScreen {
         width: 100%;
-        background-image: url(../styles/assets/iPadLandscape.png);
+    //     background-image: url(../styles/assets/iPadLandscape.png);
     }
 
     .computerScreenContents {
@@ -68,7 +74,7 @@
     flex-direction: column;
     }
 
-    .computerScreen {
+    main {
         background-image: url(../styles/assets/iPadPortrait.png);
     }
 
@@ -137,14 +143,18 @@
         text-align: center;
     }
 
-    .computerScreen {
+    main {
         background-image: url(../styles/assets/iPhone.png);
     }
 
+    // .computerScreen {
+    //     background-image: url(../styles/assets/iPhone.png);
+    // }
+
     .computerScreenContents {
         // top: 15%;
-        top: 20%;
-        width: 77%;
+        top: 25%;
+        width: 70%;
 
         h2 {
             padding-top: 10px;
@@ -166,9 +176,6 @@
         }
     }
 
-
-
-
     footer p {
         font-size: 1.3rem;
 
@@ -180,7 +187,7 @@
 @media (max-width: 400px){
 
     .computerScreenContents {
-        top: 35%;
+        top: 25%;
 
     }
 
@@ -188,11 +195,12 @@
         right: 10%;
         width: 80%;
         border-radius: 10px;
-        margin-top: 20px;
+        margin-top: 80px;
 
         audio {
             width: 100%;
         }
     }
+    
 
 }

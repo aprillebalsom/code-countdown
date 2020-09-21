@@ -1,7 +1,7 @@
 //create app object to hold all methods
 const countdownApp = {};
 
-//empty array for storing quote objects returned by API allowing radomizer function to select a quote at random to append to the page
+//empty array for storing quote objects returned by API allowing radomizer function to select a quote at random and it append to the page
 countdownApp.randomQuotesArray = [];
 
 // three - when a user clicks on one of the break buttons, change to main screen 
@@ -93,7 +93,7 @@ countdownApp.countingDown = function(minutes){
     }, 1000)
 }
 
-// six - on click, reload page to allow user to select new break time
+// six - on click, reload page to allow the user to select new break time
 countdownApp.changeBreak = function(){
 
     $('#changeBreak').on('click', function(){
@@ -104,7 +104,7 @@ countdownApp.changeBreak = function(){
 
 
 // seven - listen for the user to "select" an option from the drop down menu
-//one it is selected, take the option's value and store it in a variable
+//once it is selected, take the option's value and store it in a variable
 //then pass the variable in as an argument to the get quotes function 
 countdownApp.getSelectValue = function () {
 
@@ -116,7 +116,7 @@ countdownApp.getSelectValue = function () {
         $('.appendedQuotes').empty();
         countdownApp.getQuotes(mood);
 
-        // get random quote every 15 seconds from the same genre the user has selected
+        // get random quote every 10 seconds from the same genre the user has selected
         clearInterval(countdownApp.switchQuotes);
         countdownApp.switchQuotes = setInterval(function () {
             countdownApp.randomizer(countdownApp.randomQuotesArray)
@@ -139,7 +139,7 @@ countdownApp.getQuotes = function(query) {
 }
 
 //nine - match the user's selection to the api call results
-//then push the matching results into the array
+//then push the matching results into the random quotes array, so a quote can be selected at random
 countdownApp.randomQuotes = function (quoteResults) {
 
     const returnedQuotes = quoteResults.message
@@ -161,7 +161,7 @@ countdownApp.randomQuotes = function (quoteResults) {
 
 
 //ten - pick a random quote from the random quotes array
-//call the display function
+//call the display function to display it on the page
 countdownApp.randomizer = function (array) {
 
     const selectedRandomQuote = Math.floor(Math.random() * array.length);
@@ -170,7 +170,7 @@ countdownApp.randomizer = function (array) {
     countdownApp.displayQuotes(array[selectedRandomQuote]);
 }
 
-// eleven - display the random quote on the page
+//eleven - display the random quote on the page accompanied by its author
 countdownApp.displayQuotes = function(selectedQuote){
 
     const quoteP = $('<p>').text(`"${selectedQuote.quoteText}"`);

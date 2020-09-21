@@ -468,8 +468,8 @@ footer p {
       -ms-flex-align: center;
           align-items: center;
   position: relative;
-  -webkit-animation-name: animatetop;
-          animation-name: animatetop;
+  -webkit-animation-name: animateFromTop;
+          animation-name: animateFromTop;
   -webkit-animation-duration: 0.4s;
           animation-duration: 0.4s;
 }
@@ -479,7 +479,7 @@ footer p {
   margin-top: 20px;
 }
 
-@-webkit-keyframes animatetop {
+@-webkit-keyframes animateFromTop {
   from {
     top: -300px;
     opacity: 0;
@@ -490,7 +490,7 @@ footer p {
   }
 }
 
-@keyframes animatetop {
+@keyframes animateFromTop {
   from {
     top: -300px;
     opacity: 0;
@@ -501,11 +501,14 @@ footer p {
   }
 }
 
-.computerScreen {
+main {
   background-image: url(../styles/assets/computer.png);
   background-size: contain;
   background-position: bottom center;
   background-repeat: no-repeat;
+}
+
+.computerScreen {
   width: 100%;
   height: 90vh;
   margin-top: 20px;
@@ -579,7 +582,7 @@ select:focus {
 }
 
 .appendedQuotes p {
-  padding-top: 10px;
+  padding: 10px 2px 0;
 }
 
 p.author {
@@ -663,9 +666,11 @@ p.author {
 }
 
 @media (max-width: 940px) {
+  main {
+    background-image: url(../styles/assets/iPadLandscape.png);
+  }
   .computerScreen {
     width: 100%;
-    background-image: url(../styles/assets/iPadLandscape.png);
   }
   .computerScreenContents {
     top: 30%;
@@ -714,7 +719,7 @@ p.author {
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  .computerScreen {
+  main {
     background-image: url(../styles/assets/iPadPortrait.png);
   }
   .computerScreenContents {
@@ -761,12 +766,12 @@ p.author {
   h2 {
     text-align: center;
   }
-  .computerScreen {
+  main {
     background-image: url(../styles/assets/iPhone.png);
   }
   .computerScreenContents {
-    top: 20%;
-    width: 77%;
+    top: 25%;
+    width: 70%;
   }
   .computerScreenContents h2 {
     padding-top: 10px;
@@ -790,13 +795,13 @@ p.author {
 
 @media (max-width: 400px) {
   .computerScreenContents {
-    top: 35%;
+    top: 25%;
   }
   .music {
     right: 10%;
     width: 80%;
     border-radius: 10px;
-    margin-top: 20px;
+    margin-top: 80px;
   }
   .music audio {
     width: 100%;
