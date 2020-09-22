@@ -16,9 +16,9 @@ header {
     min-height: 100vh;
 }
 
-main {
-    max-height: 90vh;
-}
+// main {
+//     max-height: 90vh;
+// }
 
 h1, 
 h2,
@@ -30,7 +30,7 @@ p {
 }
 
 h1 {
-    font-size: clamp(2.2rem, 3vw, 8rem);
+    font-size: clamp(2.2rem, 3vw, 6rem);
     text-transform: uppercase;
     letter-spacing: 4px;
     
@@ -63,8 +63,6 @@ p {
 
 h2 {
     font-size: clamp(1.8rem, 3vw 4rem);
- 
-    padding: 80px 0 20px;
 }
 
 h3 {
@@ -102,6 +100,6 @@ button {
 
 .wrapper {
     width: 90%;
-    max-width: 1200px;
+    max-width: 1080px;
     margin: auto;
 }
