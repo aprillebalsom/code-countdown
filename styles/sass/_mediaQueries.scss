@@ -3,32 +3,20 @@
 //LANDSCAPE TABLET + SMALLER DESKTOPS
 @media (max-width: 940px){
 
-
-    main {
-        background-image: url(../styles/assets/iPadLandscape.png);
-
-    }
-
-    .computerScreen {
-        width: 100%;
-    //     background-image: url(../styles/assets/iPadLandscape.png);
-    }
-
     .computerScreenContents {
-        top: 30%;
-        width: 80%;
-
-        h2 {
-            padding-bottom: 0;
-        }
 
         select {
-            width: 50%;
+            width: 70%;
         }
     }
+ 
+    .appendedQuotes {
+        width: 85%;
 
-    .appendedQuotes p{
-        font-size: 1.6rem;
+        p {
+            font-size: 1.6rem;
+            letter-spacing: 1.5px;
+        }
     }
 
     .clockContents {
@@ -44,12 +32,7 @@
     }
 
     .music {
-        bottom: 7%;
-        right: 15%;
-
-        h4::before {
-            display: none;
-        }
+        bottom: 3%;
     }
 
 }
@@ -58,7 +41,7 @@
 //PORTRAIT TABLETS AND LANDSCAPE PHONES
 @media (max-width: 768px) {
 
-    header{
+    header {
         padding-bottom: 0;
     }
   
@@ -71,32 +54,30 @@
     }
 
     ul {
-    flex-direction: column;
+        flex-direction: column;
     }
 
-    main {
+    .computerScreen {
         background-image: url(../styles/assets/iPadPortrait.png);
     }
 
     .computerScreenContents {
-        top: 10%;
-        width: 60%;
+        width: 75%;
 
         select {
-            letter-spacing: 0;
-           
             width: 85%;
         }
     }
 
-    
+    .appendedQuotes {
+        width: 70%;
 
-    .appendedQuotes p {
-        font-size: 1.6rem;
+        p {
+            font-size: 1.6rem;
 
-        padding-top: 10px;
+            padding-top: 10px;
+        }
     }
-
 
     .music {
         background-color: $secondaryBackgroundColor;
@@ -105,7 +86,6 @@
         padding: 10px;
         border-radius: 10px 10px 0 0;
 
-        right: 0;
         bottom: 0;
 
         h4 {
@@ -114,10 +94,14 @@
             
             padding-top: 5px;
             margin-bottom: 10px;
+
+            &::before {
+                display: none;
+            }
         }
 
         audio {
-            width:100px;
+            width: 100%;
         }
         
     }
@@ -129,50 +113,74 @@
 }
 
 //PORTRAIT PHONES + DOWN
-@media (max-width: 490px) {
+@media (max-width: 500px) {
 
     header {
         padding: 10px 0 30px;
     }
 
-    main.wrapper {
-        width: 98%;
-    }
-
-    h2 {
-        text-align: center;
-    }
-
     main {
-        background-image: url(../styles/assets/iPhone.png);
-    }
+        margin-top: 150px;
 
-    // .computerScreen {
-    //     background-image: url(../styles/assets/iPhone.png);
-    // }
+        .wrapper {
+            width: 98%;
+        }
+    }
+    
+    .computerScreen {
+        background-image: url(../styles/assets/iPhone.png);
+         height: 100vh;
+    }
 
     .computerScreenContents {
-        // top: 15%;
-        top: 25%;
         width: 70%;
-
-        h2 {
-            padding-top: 10px;
-        }
     }
 
     .appendedQuotes p {
         font-size: 1.5rem;
-
+    
         padding: 0 0 10px;
     }
 
-    .clockContents {
-        position: static;
-        border-radius: 10px;
+    .flexContainer {
+        margin: -330px 0 100px;
+        flex-direction: column;
+        order: -1;
+    }
 
+    .clockContents {
+        margin-top: 100px;
+        position: static;
+      
         button {
             margin-top: 10px;
+        }
+    }
+
+    .music {
+        width: 100%;
+        padding: 10px;
+        border-radius: 0 0 10px 10px;
+        position: static;
+
+        h4 {
+            background-color: $secondaryBackgroundColor;
+            border-radius: 0;
+            
+            padding-top: 0;
+            margin-bottom: 5px;
+
+            &::before {
+                display: none;
+            }
+      
+        }
+
+        audio {
+            &:hover,
+            &:focus {
+                border: none;
+            }
         }
     }
 
@@ -184,23 +192,22 @@
 }
 
 
-@media (max-width: 400px){
+@media (max-width: 375px){
 
-    .computerScreenContents {
-        top: 25%;
-
+    main {
+        margin-top: 120px;
     }
 
-    .music {
-        right: 10%;
+    .flexContainer {
+        margin: -440px 0 100px;
+    }
+
+    .computerScreen {
+        padding-top: 150px;
+    }
+
+    .appendedQuotes {
         width: 80%;
-        border-radius: 10px;
-        margin-top: 80px;
-
-        audio {
-            width: 100%;
-        }
     }
-    
 
 }

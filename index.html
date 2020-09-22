@@ -18,7 +18,7 @@
     <header>
         <div class="wrapper">
             <section class="welcomeScreen">
-                <!-- span is to allow the <h1> tags to show up in the browser -->
+            
                 <h1> 
                     <span>&lt;h1&gt;</span> 
                     Code Countdown 
@@ -42,12 +42,12 @@
 
     <!-- START OF MAIN -->
     <main>
-        <div class="wrapper">
+        <div class="computerScreen wrapper">
 
             <div class="modal">
                 
                 <div class="modalContent">
-
+                    <!-- TODO style p larger -->
                     <p>time's up, back to coding!</p>
                     <button class="closeModal">okay</button>
 
@@ -55,74 +55,78 @@
 
             </div>
 
-            <section class="computerScreen">
                 
-                <div class="computerScreenContents">
-                    <h2>What is your mood?</h2>
+            <section class="computerScreenContents">
+                <h2>What is your mood?</h2>
 
-                    <form action="">
-                        <label class="sr-only" for="selectMood">Select a mood option from the dropdown menu</label>
-                        <select name="moods" id="selectMood">
+                <form action="">
+                    <label class="sr-only" for="selectMood">Select a mood option from the dropdown menu</label>
+                    <select name="moods" id="selectMood">
 
-                            <option value="mood" selected disabled>mood</option>
+                        <option value="mood" selected disabled>mood</option>
 
-                            <option value="happiness">happy</option>
-                            <option value="cool">calm</option>
-                            <!-- TODO change name ^ -->
-                            <option value="education">uninspired</option>
-                            <option value="imagination">creative</option> 
-                            <option value="funny">giggly</option>
-                        
-                        </select>
+                        <option value="happiness">happy</option>
+                        <option value="cool">chill</option>
+                        <option value="education">uninspired</option>
+                        <option value="imagination">creative</option> 
+                        <option value="funny">giggly</option>
+                    
+                    </select>
 
-                    </form>
-        
-                    <div class="appendedQuotes">
-                        <!-- appeneded quote -->
-                    </div>
-                
-                </div>
+                </form>
+            
+            </section>
 
-                <div class="clockContents">
-                
+            <div class="appendedQuotes">
+                <!-- appeneded quote -->
+            </div>
+
+            <div class="flexContainer">
+
+                <section class="clockContents">
+            
                     <h3>Countdown to code</h3>
-                
+                    
                     <div class="timer">
+
                         <p id="minutes">
-                            <!--appended minutes -->
+                        <!--appended minutes -->
                         </p>
-
+                        
                         <p>:</p>
-
+                        
                         <p id="additionalInteger">
-                            <!-- appended extra 0 when less than 10 seconds -->
+                        <!-- appended extra 0 when less than 10 seconds -->
+                        </p>
+                        
+                        <p id="seconds">
+                        <!--appended seconds-->
                         </p>
 
-                        <p id="seconds">
-                            <!--appended seconds-->
-                        </p>
                     </div>
-                
+                    
                     <button id="changeBreak">change break time</button>
                 
-                </div>
-
-                <div class="music">
-
+                </section>
+                
+                <section class="music">
+                
                     <h4>Add some music</h4>
                     <p class="sr-only">Press play on the control to play some inspiring music</p>
-
+                    
                     <audio controls loop>
                         <source
-                            src="./styles/assets/music.mp3"
-                            type="audio/mpeg">
-
+                        src="./styles/assets/music.mp3"
+                        type="audio/mpeg">
+                        
                         Your browser does not support the audio element.
                     </audio>
-
-                </div>
                 
-            </section>
+                </section>
+
+            </div>
+                
+           
 
         </div>
     </main>

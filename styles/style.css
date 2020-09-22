@@ -289,10 +289,6 @@ header {
   min-height: 100vh;
 }
 
-main {
-  max-height: 90vh;
-}
-
 h1,
 h2,
 h3,
@@ -303,7 +299,7 @@ p {
 }
 
 h1 {
-  font-size: clamp(2.2rem, 3vw, 8rem);
+  font-size: clamp(2.2rem, 3vw, 6rem);
   text-transform: uppercase;
   letter-spacing: 4px;
   padding-top: 60px;
@@ -332,7 +328,6 @@ p {
 
 h2 {
   font-size: clamp(1.8rem, 3vw 4rem);
-  padding: 80px 0 20px;
 }
 
 h3 {
@@ -367,7 +362,7 @@ button:hover, button:focus {
 
 .wrapper {
   width: 90%;
-  max-width: 1200px;
+  max-width: 1080px;
   margin: auto;
 }
 
@@ -379,7 +374,7 @@ header span {
   text-transform: lowercase;
 }
 
-header section {
+header .welcomeScreen {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -390,6 +385,10 @@ header section {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+header .welcomeScreen h2 {
+  padding: 80px 0 20px;
 }
 
 header .question {
@@ -502,16 +501,16 @@ footer p {
 }
 
 main {
+  margin-top: 30px;
+}
+
+.computerScreen {
+  background-color: #CDD5D1;
   background-image: url(../styles/assets/computer.png);
   background-size: contain;
   background-position: bottom center;
   background-repeat: no-repeat;
-}
-
-.computerScreen {
-  width: 100%;
   height: 90vh;
-  margin-top: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -519,6 +518,9 @@ main {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -526,69 +528,46 @@ main {
 }
 
 .computerScreenContents {
+  width: 80%;
+}
+
+.computerScreenContents form {
   text-align: center;
-  width: 75%;
-  max-width: 810px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  position: absolute;
-  top: 13%;
-  z-index: 10;
-}
-
-.computerScreenContents h2 {
-  padding-top: 50px;
-}
-
-form {
   padding: 20px 0;
   width: 100%;
-  margin: 0 auto;
 }
 
-select {
+.computerScreenContents select {
   border: 1px solid #414141;
   letter-spacing: 2px;
   padding: 10px 50px 10px 5px;
   width: 50%;
 }
 
-select:focus {
+.computerScreenContents select:focus {
   border: 4px solid #e2e2e2;
 }
 
 .appendedQuotes {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  height: 40%;
+  width: 75%;
 }
 
 .appendedQuotes p {
-  padding: 10px 2px 0;
+  padding-top: 15px;
+  letter-spacing: 1.5px;
 }
 
 p.author {
   font-size: 1.6rem;
   font-style: italic;
   padding: 15px 0 0;
+}
+
+.flexContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .clockContents {
@@ -612,11 +591,11 @@ p.author {
 }
 
 .clockContents button:hover, .clockContents button:focus {
+  background-color: #e2e2e2;
   -webkit-transform: none;
           transform: none;
   -webkit-transition: .5s all;
   transition: .5s all;
-  background-color: #e2e2e2;
 }
 
 .timer {
@@ -636,8 +615,8 @@ p.author {
 
 .music {
   position: absolute;
-  bottom: 5%;
-  right: 5%;
+  bottom: 4%;
+  right: 0;
 }
 
 .music h4 {
@@ -648,13 +627,12 @@ p.author {
 .music h4::before {
   content: '';
   background-color: #F9F6EF;
-  opacity: .9;
+  opacity: .4;
   width: 95%;
   height: 30%;
   position: absolute;
   top: 40%;
   right: 10%;
-  z-index: -10;
 }
 
 .music audio {
@@ -662,28 +640,19 @@ p.author {
 }
 
 .music audio:hover, .music audio:focus {
-  border: 4px solid #F9F6EF;
+  border: 2px solid #F9F6EF;
 }
 
 @media (max-width: 940px) {
-  main {
-    background-image: url(../styles/assets/iPadLandscape.png);
-  }
-  .computerScreen {
-    width: 100%;
-  }
-  .computerScreenContents {
-    top: 30%;
-    width: 80%;
-  }
-  .computerScreenContents h2 {
-    padding-bottom: 0;
-  }
   .computerScreenContents select {
-    width: 50%;
+    width: 70%;
+  }
+  .appendedQuotes {
+    width: 85%;
   }
   .appendedQuotes p {
     font-size: 1.6rem;
+    letter-spacing: 1.5px;
   }
   .clockContents {
     padding: 10px 20px;
@@ -695,11 +664,7 @@ p.author {
     padding: 10px 0;
   }
   .music {
-    bottom: 7%;
-    right: 15%;
-  }
-  .music h4::before {
-    display: none;
+    bottom: 3%;
   }
 }
 
@@ -719,16 +684,17 @@ p.author {
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  main {
+  .computerScreen {
     background-image: url(../styles/assets/iPadPortrait.png);
   }
   .computerScreenContents {
-    top: 10%;
-    width: 60%;
+    width: 75%;
   }
   .computerScreenContents select {
-    letter-spacing: 0;
     width: 85%;
+  }
+  .appendedQuotes {
+    width: 70%;
   }
   .appendedQuotes p {
     font-size: 1.6rem;
@@ -739,7 +705,6 @@ p.author {
     width: 120px;
     padding: 10px;
     border-radius: 10px 10px 0 0;
-    right: 0;
     bottom: 0;
   }
   .music h4 {
@@ -748,44 +713,72 @@ p.author {
     padding-top: 5px;
     margin-bottom: 10px;
   }
+  .music h4::before {
+    display: none;
+  }
   .music audio {
-    width: 100px;
+    width: 100%;
   }
   footer p {
     text-align: left;
   }
 }
 
-@media (max-width: 490px) {
+@media (max-width: 500px) {
   header {
     padding: 10px 0 30px;
   }
-  main.wrapper {
+  main {
+    margin-top: 150px;
+  }
+  main .wrapper {
     width: 98%;
   }
-  h2 {
-    text-align: center;
-  }
-  main {
+  .computerScreen {
     background-image: url(../styles/assets/iPhone.png);
+    height: 100vh;
   }
   .computerScreenContents {
-    top: 25%;
     width: 70%;
-  }
-  .computerScreenContents h2 {
-    padding-top: 10px;
   }
   .appendedQuotes p {
     font-size: 1.5rem;
     padding: 0 0 10px;
   }
+  .flexContainer {
+    margin: -330px 0 100px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-ordinal-group: 0;
+        -ms-flex-order: -1;
+            order: -1;
+  }
   .clockContents {
+    margin-top: 100px;
     position: static;
-    border-radius: 10px;
   }
   .clockContents button {
     margin-top: 10px;
+  }
+  .music {
+    width: 100%;
+    padding: 10px;
+    border-radius: 0 0 10px 10px;
+    position: static;
+  }
+  .music h4 {
+    background-color: #557D87;
+    border-radius: 0;
+    padding-top: 0;
+    margin-bottom: 5px;
+  }
+  .music h4::before {
+    display: none;
+  }
+  .music audio:hover, .music audio:focus {
+    border: none;
   }
   footer p {
     font-size: 1.3rem;
@@ -793,17 +786,17 @@ p.author {
   }
 }
 
-@media (max-width: 400px) {
-  .computerScreenContents {
-    top: 25%;
+@media (max-width: 375px) {
+  main {
+    margin-top: 120px;
   }
-  .music {
-    right: 10%;
+  .flexContainer {
+    margin: -440px 0 100px;
+  }
+  .computerScreen {
+    padding-top: 150px;
+  }
+  .appendedQuotes {
     width: 80%;
-    border-radius: 10px;
-    margin-top: 80px;
-  }
-  .music audio {
-    width: 100%;
   }
 }
