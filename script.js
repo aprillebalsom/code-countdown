@@ -1,14 +1,15 @@
-//create app object to hold all methods
+//create app object to hold everything
 const countdownApp = {};
 
-//empty array for storing quote objects returned by API allowing radomizer function to select a quote at random and it append to the page
+//empty array for storing quote objects returned by API allowing randomizer function to select a quote at random and append it to the page
 countdownApp.randomQuotesArray = [];
 
+
 // three - when a user clicks on one of the break buttons, change to main screen 
-countdownApp.changeScreen = function () {
+countdownApp.changeScreen = function() {
 
     //when a break button is clicked
-    $('.breakStart').on('click', function (event) {
+    $('.breakStart').on('click', function() {
 
         $('header').hide();
         $('main').show();
@@ -47,16 +48,16 @@ countdownApp.startTimer = function(selectedBreakTime){
     countdownApp.countingDown(minutesTime);
 }
 
-// five - begin set interval timer and start counting break down 
+// five - begin set interval timer and start counting the selected breaktime down 
 countdownApp.countingDown = function(minutes){
 
     if (minutes > 0) {
-        minutes = minutes - 1
+        minutes = minutes - 1;
         $('#minutes').text(minutes);
     }
 
     let seconds = 60;
-    const timer = setInterval(function () {
+    const timer = setInterval(function() {
 
         if (seconds <= 10) {
 
@@ -73,7 +74,7 @@ countdownApp.countingDown = function(minutes){
 
         if (seconds <= 0 && minutes > 0) {
 
-            //when the seconds get to 0, run the function again
+            //when the seconds get to 0, run the counting down function again
             clearInterval(timer);
             countdownApp.countingDown(minutes);
 
@@ -85,13 +86,14 @@ countdownApp.countingDown = function(minutes){
             //reload to original page
             $('.modal').addClass('unhide');
            
+            //event listener waiting for the user to click the okay button to reload the page
             $('.closeModal').on('click', function(){
                 location.reload();
-            })
+            });
         }
 
-    }, 1000)
-}
+    }, 1000);
+};
 
 // six - on click, reload page to allow the user to select new break time
 countdownApp.changeBreak = function(){
@@ -100,17 +102,17 @@ countdownApp.changeBreak = function(){
 
         location.reload();
     });
-}
-
+};
 
 // seven - listen for the user to "select" an option from the drop down menu
 //once it is selected, take the option's value and store it in a variable
 //then pass the variable in as an argument to the get quotes function 
-countdownApp.getSelectValue = function () {
+countdownApp.getSelectValue = function() {
 
-    $('select').on('change', function () {
+    $('select').on('change', function() {
 
         const mood = $('option:selected').val();
+
         countdownApp.randomQuotesArray = [];
 
         $('.appendedQuotes').empty();
@@ -118,12 +120,12 @@ countdownApp.getSelectValue = function () {
 
         // get random quote every 10 seconds from the same genre the user has selected
         clearInterval(countdownApp.switchQuotes);
-        countdownApp.switchQuotes = setInterval(function () {
+        countdownApp.switchQuotes = setInterval(function() {
             countdownApp.randomizer(countdownApp.randomQuotesArray)
         }, 10000);
     });
 
-}
+};
 
 // eight - make the ajax call to the API and pass the results into the randomQuotes function
 countdownApp.getQuotes = function(query) {
@@ -133,16 +135,16 @@ countdownApp.getQuotes = function(query) {
     dataType: 'JSON',
     }).then(function(result){
 
-        countdownApp.randomQuotes(result)
+        countdownApp.randomQuotes(result);
 
-    })
-}
+    });
+};
 
-//nine - match the user's selection to the api call results
+//nine - match the user's selection to the API call results
 //then push the matching results into the random quotes array, so a quote can be selected at random
 countdownApp.randomQuotes = function (quoteResults) {
 
-    const returnedQuotes = quoteResults.message
+    const returnedQuotes = quoteResults.message;
     const mood = $('option:selected').val();
 
     for (let i = 0; i < quoteResults.quotes.length; i++) {
@@ -157,12 +159,12 @@ countdownApp.randomQuotes = function (quoteResults) {
     
     countdownApp.randomizer(countdownApp.randomQuotesArray);
 
-}
+};
 
 
 //ten - pick a random quote from the random quotes array
 //call the display function to display it on the page
-countdownApp.randomizer = function (array) {
+countdownApp.randomizer = function(array) {
 
     const selectedRandomQuote = Math.floor(Math.random() * array.length);
     $('.appendedQuotes').empty();
@@ -177,15 +179,19 @@ countdownApp.displayQuotes = function(selectedQuote){
     const authorP = $('<p>').text(`-${selectedQuote.quoteAuthor}`).addClass('author');
     $('.appendedQuotes').append(quoteP, authorP);
 
-}
+};
 
 //two - init function that kicks off the app
 countdownApp.init = function () { 
+
     $('main').hide();
     countdownApp.changeScreen();
+
 };
 
 //one - document ready function
 $(function () { 
+
     countdownApp.init();
+
 });

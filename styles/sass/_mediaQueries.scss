@@ -34,9 +34,7 @@
     .music {
         bottom: 3%;
     }
-
 }
-
 
 //PORTRAIT TABLETS AND LANDSCAPE PHONES
 @media (max-width: 768px) {
@@ -90,8 +88,8 @@
 
         h4 {
             background-color: $buttonColor;
+
             border-radius: 10px;
-            
             padding-top: 5px;
             margin-bottom: 10px;
 
@@ -103,7 +101,6 @@
         audio {
             width: 100%;
         }
-        
     }
 
     footer p {
@@ -129,7 +126,8 @@
     
     .computerScreen {
         background-image: url(../styles/assets/iPhone.png);
-         height: 100vh;
+
+        height: 100vh;
     }
 
     .computerScreenContents {
@@ -144,12 +142,14 @@
 
     .flexContainer {
         margin: -330px 0 100px;
+
         flex-direction: column;
         order: -1;
     }
 
     .clockContents {
         margin-top: 100px;
+
         position: static;
       
         button {
@@ -161,6 +161,7 @@
         width: 100%;
         padding: 10px;
         border-radius: 0 0 10px 10px;
+
         position: static;
 
         h4 {
@@ -191,7 +192,6 @@
     }
 }
 
-
 @media (max-width: 375px){
 
     main {
@@ -209,5 +209,4 @@
     .appendedQuotes {
         width: 80%;
     }
-
 }

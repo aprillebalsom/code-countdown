@@ -429,6 +429,10 @@ footer p {
   text-transform: none;
 }
 
+main {
+  margin-top: 30px;
+}
+
 .modal {
   background-color: #2D2D2D80;
   width: 100%;
@@ -500,12 +504,7 @@ footer p {
   }
 }
 
-main {
-  margin-top: 30px;
-}
-
 .computerScreen {
-  background-color: #CDD5D1;
   background-image: url(../styles/assets/computer.png);
   background-size: contain;
   background-position: bottom center;
@@ -627,12 +626,13 @@ p.author {
 .music h4::before {
   content: '';
   background-color: #F9F6EF;
-  opacity: .4;
+  opacity: .5;
   width: 95%;
   height: 30%;
   position: absolute;
   top: 40%;
   right: 10%;
+  z-index: -10;
 }
 
 .music audio {

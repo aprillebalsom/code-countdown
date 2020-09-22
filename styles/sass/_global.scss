@@ -9,14 +9,12 @@ body {
     
     font-family: $fontRegular;
     letter-spacing: 2px;
-    font-size: 1.7rem
+    font-size: 1.7rem;
 }
 
 header {
     min-height: 100vh;
 }
-
-
 
 h1, 
 h2,
@@ -42,6 +40,7 @@ h1 {
 
         background-color: $buttonColor;
         opacity: .5;
+
         width: 95%;
         height: 25%;
 
@@ -71,7 +70,6 @@ h4 {
     width: clamp(1.6, 3vw, 2rem);
 }
 
-
 select,
 button {
     color: $fontColor;
@@ -91,7 +89,9 @@ button {
     &:hover,
     &:focus {
         background-color: $buttonHoverColor;
+
         transform: translateY(-5px);
+
         cursor: pointer;
     }
 }

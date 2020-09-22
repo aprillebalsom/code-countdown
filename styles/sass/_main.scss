@@ -1,4 +1,7 @@
 //MAIN STYLES
+main {
+    margin-top: 30px;
+}
 
 //MODAL STYLES
 .modal {
@@ -60,12 +63,7 @@
 }
 
 //COMPUTER STYLES
-main {
-    margin-top: 30px;
-}
-
 .computerScreen  {
-    background-color: $backgroundColor;
     background-image: url(../styles/assets/computer.png);
     background-size: contain;
     background-position: bottom center;
@@ -126,7 +124,6 @@ p.author {
     display: flex;
 }
 
-
 //CLOCK TIMER STYLES
 .clockContents {
     background-color: $secondaryBackgroundColor;
@@ -171,8 +168,6 @@ p.author {
     align-items: center;
 }
 
-
-
 //MUSIC STYLES
 .music {
     position: absolute;
@@ -188,7 +183,7 @@ p.author {
             content: '';
 
             background-color: $buttonColor;
-            opacity: .4;
+            opacity: .5;
 
             width: 95%;
             height: 30%;
@@ -196,6 +191,7 @@ p.author {
             position: absolute;
             top: 40%;
             right: 10%;
+            z-index: -10;
         }
     }
 
