@@ -130,13 +130,11 @@ countdownApp.getSelectValue = function() {
 // eight - make the ajax call to the API and pass the results into the randomQuotes function
 countdownApp.getQuotes = function(query) {
     $.ajax({
-        url: `https://quote-garden.herokuapp.com/api/v2/genre/${query}?page=1&limit=270`,
+        url: `https://api.quotable.io/quotes?maxLength=100&tags=${query}`,
     method: 'GET',
     dataType: 'JSON',
     }).then(function(result){
-
         countdownApp.randomQuotes(result);
-
     });
 };
 
@@ -144,21 +142,15 @@ countdownApp.getQuotes = function(query) {
 //then push the matching results into the random quotes array, so a quote can be selected at random
 countdownApp.randomQuotes = function (quoteResults) {
 
-    const returnedQuotes = quoteResults.message;
-    const mood = $('option:selected').val();
+    const returnedQuotes = quoteResults.results;
+   
+    for (let i = 0; i < returnedQuotes.length; i++) {
 
-    for (let i = 0; i < quoteResults.quotes.length; i++) {
-
-        if (`Quotes in ${mood} genre` === returnedQuotes) {
-
-            const selectedQuote = quoteResults.quotes[i];
-
-            countdownApp.randomQuotesArray.push(selectedQuote);
-        } 
+        const selectedQuote = returnedQuotes[i];
+        countdownApp.randomQuotesArray.push(selectedQuote);
     }
     
     countdownApp.randomizer(countdownApp.randomQuotesArray);
-
 };
 
 
@@ -175,8 +167,8 @@ countdownApp.randomizer = function(array) {
 //eleven - display the random quote on the page accompanied by its author
 countdownApp.displayQuotes = function(selectedQuote){
 
-    const quoteP = $('<p>').text(`"${selectedQuote.quoteText}"`);
-    const authorP = $('<p>').text(`-${selectedQuote.quoteAuthor}`).addClass('author');
+    const quoteP = $('<p>').text(`"${selectedQuote.content}"`);
+    const authorP = $('<p>').text(`-${selectedQuote.author}`).addClass('author');
     $('.appendedQuotes').append(quoteP, authorP);
 
 };
